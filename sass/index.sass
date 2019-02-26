@@ -3,27 +3,38 @@ $main: #00BDB4
 $sub: #F58412
 $text: #34495E
 
+html
+  height: 100%
+
 //body
 body
-  background: url(../img/.jpg) no-repeat top center
+
 
 //nav
 nav
 
 //header
 header
+  pointer-events: none
+  width: 100%
+  position: fixed
+  background: url('../img/header_m.png') no-repeat top center
+  height: 100%
+  background-size: contain
 
 //main
 main
-  .container
-    background-color: aqua
-    .row
-      div:nth-of-type(1)
-        background-color: rgba(red,0.5)
-      div:nth-of-type(2)
-        background-color: rgba(green,0.5)
-      div:nth-of-type(3)
-        background-color: rgba(blue,0.5)
+  background-color: red
+  background: url(../img/bg_m.jpg) no-repeat top center
+  height: 100%
+  background-size: contain
 
 //footer
 footer
+  pointer-events: none
+  width: 100%
+  position: fixed
+  background: url('../img/footer_m.png') no-repeat bottom
+  height: 100%
+  bottom: 0%
+  background-size: contain

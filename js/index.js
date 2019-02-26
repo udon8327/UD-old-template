@@ -12,3 +12,9 @@ $(function(){
     }
   });
 })
+
+$(function() {
+  $('.btn').on('click',function(){
+    alert('test')
+  })
+});

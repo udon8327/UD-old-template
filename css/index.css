@@ -1,11 +1,25 @@
-body {
-  background: url(../img/.jpg) no-repeat top center; }
+html {
+  height: 100%; }
 
-main .container {
-  background-color: aqua; }
-  main .container .row div:nth-of-type(1) {
-    background-color: rgba(255, 0, 0, 0.5); }
-  main .container .row div:nth-of-type(2) {
-    background-color: rgba(0, 128, 0, 0.5); }
-  main .container .row div:nth-of-type(3) {
-    background-color: rgba(0, 0, 255, 0.5); }
+header {
+  pointer-events: none;
+  width: 100%;
+  position: fixed;
+  background: url("../img/header_m.png") no-repeat top center;
+  height: 100%;
+  background-size: contain; }
+
+main {
+  background-color: red;
+  background: url(../img/bg_m.jpg) no-repeat top center;
+  height: 100%;
+  background-size: contain; }
+
+footer {
+  pointer-events: none;
+  width: 100%;
+  position: fixed;
+  background: url("../img/footer_m.png") no-repeat bottom;
+  height: 100%;
+  bottom: 0%;
+  background-size: contain; }
