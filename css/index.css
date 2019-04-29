@@ -1,25 +1,15 @@
-html {
-  height: 100%; }
-
-header {
-  pointer-events: none;
-  width: 100%;
-  position: fixed;
-  background: url("../img/header_m.png") no-repeat top center;
-  height: 100%;
-  background-size: contain; }
-
+/*main*/
 main {
-  background-color: red;
-  background: url(../img/bg_m.jpg) no-repeat top center;
-  height: 100%;
-  background-size: contain; }
-
-footer {
-  pointer-events: none;
-  width: 100%;
-  position: fixed;
-  background: url("../img/footer_m.png") no-repeat bottom;
-  height: 100%;
-  bottom: 0%;
-  background-size: contain; }
+  padding-top: 72px; }
+  @media (min-width: 768px) {
+    main .container {
+      width: 576px; } }
+  main .container h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin: 20px 0 20px 0; }
+    @media (min-width: 768px) {
+      main .container h1 {
+        margin: 25px 0;
+        font-size: 24px; } }
