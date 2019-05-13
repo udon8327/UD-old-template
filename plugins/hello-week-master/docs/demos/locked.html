@@ -1,0 +1,25 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>locked.md</title>
+      </head>
+      <body>
+        <h2 id="locked">Locked</h2>
+<h4 id="overview">Overview</h4>
+<p>Locks all days in calendar.</p>
+<h4 id="html-structure">HTML Structure</h4>
+<pre><code class="lang-html">&lt;div class=&quot;calendar&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h4 id="javascript-initialization">Javascript Initialization</h4>
+<pre><code class="lang-js">var calendar = new HelloWeek({
+    selector: &#39;.calendar&#39;,
+    locked: true,
+    onNavigation: () =&gt; {
+        calendar.setLocked(false);
+        calendar.update();
+    }
+});
+</code></pre>
+
+      </body>
+    </html>

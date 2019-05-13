@@ -1,0 +1,31 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>reset.md</title>
+      </head>
+      <body>
+        <h2 id="reset">Reset</h2>
+<h4 id="overview">Overview</h4>
+<p>Method reset calendar to initial value.</p>
+<h4 id="html-structure">HTML Structure</h4>
+<pre><code class="lang-html">&lt;div class=&quot;hello-week&quot;&gt;&lt;/div&gt;
+&lt;button class=&quot;btn&quot;&gt;Reset Calendar&lt;/button&gt;
+</code></pre>
+<h4 id="javascript-initialization">Javascript Initialization</h4>
+<pre><code class="lang-js">var calendar = new HelloWeek({
+    minDate: &#39;2019-03-10&#39;,
+    maxDate: &#39;2019-03-28&#39;,
+    onNavigation: () =&gt; {
+        console.log(&#39;You change the month!&#39;);
+    }
+});
+document.querySelector(&#39;.btn&#39;).addEventListener(&#39;click&#39;, () =&gt; {
+    calendar.reset({
+        minDate: false,
+        maxDate: false
+    });
+});
+</code></pre>
+
+      </body>
+    </html>

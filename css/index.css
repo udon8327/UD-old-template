@@ -1,7 +1,7 @@
 /*main*/
 main {
   padding-top: 72px; }
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     main .container {
       width: 576px; } }
   main .container h1 {

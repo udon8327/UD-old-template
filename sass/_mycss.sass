@@ -177,27 +177,28 @@ ul
     height: 0
     visibility: hidden
 
-/*popup彈出視窗*/
-.popup
-  height: 100%
-  width: 100%
-  position: absolute
+/*modal彈出視窗*/
+.modal
+  height: 100vh
+  width: 100vw
   display: flex
   justify-content: center
   align-items: center
-  .popupContent
-    padding: 15px 15px
+  z-index: 1000
+  .modalContent
     background-color: #fff
-    width: 80%
+    height: 90vh
+    width: 90vw
     position: fixed
     padding: 15px
-    border-radius: 6px
-    z-index: 110
+    //border-radius: 6px
+    overflow: auto
     animation-duration: 0.4s
     box-shadow: 0px 10px 20px 0px rgba(#000,0.2)
-    @media (min-width:767px)
+    @media (min-width:900px)
       max-width: 500px
-    .popupClose
+      height: 75vh
+    .modalClose
       position: absolute
       top: 8px
       font-size: 22px
@@ -208,7 +209,8 @@ ul
       &:hover
         transform: scale(1.3)
     h5
-      font-size: 22px
+      font-size: 18px
+      font-weight: bold
     button
       background-color: $dark
       cursor: pointer
@@ -226,17 +228,24 @@ ul
         color: $dark
         &:hover
           background-color: darken(#fff,5%)
-  .popupBg
-    display: flex
-    position: fixed
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    flex-direction: row
-    background-color: rgba(#000,0.3)
-    justify-content: center
-    z-index: 10
+  .modalBg
+    background-color: rgba(#000,0.4)
+    width: 100vw
+    height: 100vh
+
+
+.modalConfirm
+  z-index: 1100
+  .modalContent
+    height: auto
+    width: 90vw
+  p#fail,p#success
+    font-weight: bold
+    font-size: 16px
+  p#fail
+    color: red
+  p#success
+    color: green
 
 /*jquery validate.js表單驗證*/
 label

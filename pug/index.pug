@@ -8,7 +8,7 @@ block title
 	title 首頁
 
 block css
-	link(rel='stylesheet' href='css/index.css?v=1')
+	link(href='css/index.css?v=1' rel='stylesheet')
 
 block js
 	script(src="plugins/jquery-validate-1.19.0/jquery.validate.min.js")
@@ -17,86 +17,105 @@ block js
 //---------------------------內容區Start---------------------------
 block content
 	
-	//-popup
-	#popup.d-none
-		form#formValidate.popup(name="popup" action="" method="post")
-			.popupContent.text-center.animated.bounceIn
-				i.fas.fa-times.popupClose(onclick='popupClose($(this))')
-				h5.font-weight-bold Popup Title
-				p Popup Text
+	//- modal
+	#modal.d-none
+		.modal
+			.modalContent.text-center.animated.bounceInUp
+				i.fas.fa-times.modalClose(onclick='modalClose($(this))')
+				h5.font-weight-bold modal Title
+				p modal Text
+				//- form
+				form#formValidate(name="modal" action="" method="post")
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='name') Name：
+						.col-14
+							input#name.form-control(name="name" type="text" placeholder='請輸入姓名')
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='mobile') Phone：
+						.col-14
+							input#mobile.form-control(name="mobile" type="tel" placeholder='請輸入手機號碼')
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='email') Email：
+						.col-14
+							input#email.form-control(name="email" type="email" placeholder='請輸入Email')
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='select') Select：
+						.col-14
+							select#select.form-control(name="select" type="select")
+								option(value="select_A") select_A
+								option(value="select_B") select_B
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='file') File：
+						.col-14
+							.custom-file
+								input#file.custom-file-input(name="file" type='file')
+								label.custom-file-label(for='customFile') 選擇檔案
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='textarea') Textarea：
+						.col-14
+							textarea#textarea.form-control(rows='2')
+					.form-group.row.justify-content-start.align-items-center.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='checkbox_A') Checkbox：
+						.col-14
+							.custom-control.custom-checkbox.custom-control-inline
+								input#checkbox_A.custom-control-input(name="checkbox" type='checkbox' value='checkbox_A' checked)
+								label.custom-control-label(for='checkbox_A') checkbox_A
+							.custom-control.custom-checkbox.custom-control-inline
+								input#checkbox_B.custom-control-input(name="checkbox" type='checkbox' value='checkbox_B')
+								label.custom-control-label(for='checkbox_B') checkbox_B
+					.form-group.row.justify-content-start.align-items-center.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='radio_A') Radios：
+						.col-14
+							.custom-control.custom-radio.custom-control-inline
+								input#radio_A.custom-control-input(name='radio' type='radio' value='radio_A' checked)
+								label.custom-control-label(for='radio_A') radio_A
+							.custom-control.custom-radio.custom-control-inline
+								input#radio_B.custom-control-input(name='radio' type='radio' value='radio_B')
+								label.custom-control-label(for='radio_B') radio_B
+					//- button
+					button.confirm(type='submit' onclick='modalConfirmOpen()') 確定
+					button.cancel(type='reset' onclick='modalClose($(this))') 取消
+			.modalBg(onclick='modalClose($(this))')
 
-				.form-group.row.justify-content-start.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='name') Name：
-					.col-14
-						input#name.form-control(type="text" name="name" placeholder='請輸入姓名')
+	//- modalConfirm
+	#modalConfirm.d-none
+		.modal.modalConfirm
+			.modalContent.text-center.animated.bounceInUp
+				i.fas.fa-times.modalClose(onclick='modalClose($(this))')
+				h5.font-weight-bold 確定要使用嗎?
+				p#data 2019/5/13 (月) 20:00-23:15
+				p#fail
+				p#success
+				.w-100
+				//- button
+				button.confirm(type='button' onclick='send()') 確定
+				button.cancel(type='button' onclick='modalClose($(this))') 取消
+			.modalBg(onclick='modalClose($(this))')
 
-				.form-group.row.justify-content-start.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='mobile') Phone：
-					.col-14
-						input#mobile.form-control(type="tel" name="mobile" placeholder='請輸入手機號碼')
-
-				.form-group.row.justify-content-start.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='email') Email：
-					.col-14
-						input#email.form-control(type="email" name="email" placeholder='請輸入Email')
-
-				.form-group.row.justify-content-start.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='select') Select：
-					.col-14
-						select#select.form-control(type="select" name="select")
-							option(value="select_A") select_A
-							option(value="select_B") select_B
-
-				.form-group.row.justify-content-start.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='file') File：
-					.col-14
-						.custom-file
-							input#file.custom-file-input(type='file' name="file")
-							label.custom-file-label(for='customFile') 選擇檔案
-
-				.form-group.row.justify-content-start.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='textarea') Textarea：
-					.col-14
-						textarea#textarea.form-control(rows='2')
-
-				.form-group.row.justify-content-start.align-items-center.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='checkbox_A') Checkbox：
-					.col-14
-						.custom-control.custom-checkbox.custom-control-inline
-							input#checkbox_A.custom-control-input(type='checkbox' name="checkbox" value='checkbox_A' checked)
-							label.custom-control-label(for='checkbox_A') checkbox_A
-						.custom-control.custom-checkbox.custom-control-inline
-							input#checkbox_B.custom-control-input(type='checkbox' name="checkbox" value='checkbox_B')
-							label.custom-control-label(for='checkbox_B') checkbox_B
-
-				.form-group.row.justify-content-start.align-items-center.text-left
-					.col-8.text-right
-						label.col-form-label.font-weight-bold(for='radio_A') Radios：
-					.col-14
-						.custom-control.custom-radio.custom-control-inline
-							input#radio_A.custom-control-input(type='radio' name='radio' value='radio_A' checked)
-							label.custom-control-label(for='radio_A') radio_A
-						.custom-control.custom-radio.custom-control-inline
-							input#radio_B.custom-control-input(type='radio' name='radio' value='radio_B')
-							label.custom-control-label(for='radio_B') radio_B
-
-				button.confirm(type='submit' name='confirm') 確定
-				button.cancel(type='reset' name='cancel' onclick='popupClose($(this))') 取消
-			.popupBg
-
-	//-main
+	//- main
 	main
-		.container.bc-1
-			button.btn.btn-primary(type="button" onclick='popupOpen()') TEST
+		.container
+			button.btn.btn-primary.mb-5(type="button" onclick='modalOpen()') TEST
 
-		//-popup
+			.row
+				.col-24
+					canvas#myChart1.mb-5(width='600', height='400')
+				.col-24
+					canvas#myChart2.mb-5(width='600', height='400')
+				.col-12
+					canvas#myChart3(width='600', height='400')
+				.col-12
+					canvas#myChart4(width='600', height='400')
+
+			button.btn.btn-primary.mb-5(type="button" onclick='modalOpen()') TEST
 
 
 //---------------------------內容區End---------------------------

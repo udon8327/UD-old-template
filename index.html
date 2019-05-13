@@ -8,14 +8,14 @@
     <meta name="description" content="網頁描述">
     <meta name="keywords" content="網頁關鍵字">
     <meta name="author" content="Bohan Huang">
-    <link rel="shortcut icon" href="img/ico.ico">
+    <link href="img/ico.ico" rel="shortcut icon">
     <title>首頁</title>
-    <link rel="stylesheet" href="plugins/bootstrap-4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-grid-24-min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link rel="stylesheet" href="plugins/animate.css/animate.min.css">
-    <link rel="stylesheet" href="css/index.css?v=1">
-    <link rel="stylesheet" href="css/layout.css?v=1"><!--[if lt IE 9]>
+    <link href="plugins/bootstrap-4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-grid-24-min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <link href="plugins/animate.css/animate.min.css" rel="stylesheet">
+    <link href="css/index.css?v=1" rel="stylesheet">
+    <link href="css/layout.css?v=1" rel="stylesheet"><!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -24,109 +24,141 @@
     <div id="gotop"><i class="fas fa-chevron-up"></i></div>
     <header class="text-center"><a href="event.html">
         <!--img(src=url+"img/logo.png", alt="logo")--></a></header>
-    <div class="d-none" id="popup">
-      <form class="popup" id="formValidate" name="popup" action="" method="post">
-        <div class="popupContent text-center animated bounceIn"><i class="fas fa-times popupClose" onclick="popupClose($(this))"></i>
-          <h5 class="font-weight-bold">Popup Title</h5>
-          <p>Popup Text</p>
-          <div class="form-group row justify-content-start text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="name">Name：</label>
-            </div>
-            <div class="col-14">
-              <input class="form-control" id="name" type="text" name="name" placeholder="請輸入姓名">
-            </div>
-          </div>
-          <div class="form-group row justify-content-start text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="mobile">Phone：</label>
-            </div>
-            <div class="col-14">
-              <input class="form-control" id="mobile" type="tel" name="mobile" placeholder="請輸入手機號碼">
-            </div>
-          </div>
-          <div class="form-group row justify-content-start text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="email">Email：</label>
-            </div>
-            <div class="col-14">
-              <input class="form-control" id="email" type="email" name="email" placeholder="請輸入Email">
-            </div>
-          </div>
-          <div class="form-group row justify-content-start text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="select">Select：</label>
-            </div>
-            <div class="col-14">
-              <select class="form-control" id="select" type="select" name="select">
-                <option value="select_A">select_A</option>
-                <option value="select_B">select_B</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group row justify-content-start text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="file">File：</label>
-            </div>
-            <div class="col-14">
-              <div class="custom-file">
-                <input class="custom-file-input" id="file" type="file" name="file">
-                <label class="custom-file-label" for="customFile">選擇檔案</label>
+    <div class="d-none" id="modal">
+      <div class="modal">
+        <div class="modalContent text-center animated bounceInUp"><i class="fas fa-times modalClose" onclick="modalClose($(this))"></i>
+          <h5 class="font-weight-bold">modal Title</h5>
+          <p>modal Text</p>
+          <form id="formValidate" name="modal" action="" method="post">
+            <div class="form-group row justify-content-start text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="name">Name：</label>
+              </div>
+              <div class="col-14">
+                <input class="form-control" id="name" name="name" type="text" placeholder="請輸入姓名">
               </div>
             </div>
-          </div>
-          <div class="form-group row justify-content-start text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="textarea">Textarea：</label>
-            </div>
-            <div class="col-14">
-              <textarea class="form-control" id="textarea" rows="2"></textarea>
-            </div>
-          </div>
-          <div class="form-group row justify-content-start align-items-center text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="checkbox_A">Checkbox：</label>
-            </div>
-            <div class="col-14">
-              <div class="custom-control custom-checkbox custom-control-inline">
-                <input class="custom-control-input" id="checkbox_A" type="checkbox" name="checkbox" value="checkbox_A" checked>
-                <label class="custom-control-label" for="checkbox_A">checkbox_A</label>
+            <div class="form-group row justify-content-start text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="mobile">Phone：</label>
               </div>
-              <div class="custom-control custom-checkbox custom-control-inline">
-                <input class="custom-control-input" id="checkbox_B" type="checkbox" name="checkbox" value="checkbox_B">
-                <label class="custom-control-label" for="checkbox_B">checkbox_B</label>
+              <div class="col-14">
+                <input class="form-control" id="mobile" name="mobile" type="tel" placeholder="請輸入手機號碼">
               </div>
             </div>
-          </div>
-          <div class="form-group row justify-content-start align-items-center text-left">
-            <div class="col-8 text-right">
-              <label class="col-form-label font-weight-bold" for="radio_A">Radios：</label>
-            </div>
-            <div class="col-14">
-              <div class="custom-control custom-radio custom-control-inline">
-                <input class="custom-control-input" id="radio_A" type="radio" name="radio" value="radio_A" checked>
-                <label class="custom-control-label" for="radio_A">radio_A</label>
+            <div class="form-group row justify-content-start text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="email">Email：</label>
               </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input class="custom-control-input" id="radio_B" type="radio" name="radio" value="radio_B">
-                <label class="custom-control-label" for="radio_B">radio_B</label>
+              <div class="col-14">
+                <input class="form-control" id="email" name="email" type="email" placeholder="請輸入Email">
               </div>
             </div>
-          </div>
-          <button class="confirm" type="submit" name="confirm">確定</button>
-          <button class="cancel" type="reset" name="cancel" onclick="popupClose($(this))">取消</button>
+            <div class="form-group row justify-content-start text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="select">Select：</label>
+              </div>
+              <div class="col-14">
+                <select class="form-control" id="select" name="select" type="select">
+                  <option value="select_A">select_A</option>
+                  <option value="select_B">select_B</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row justify-content-start text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="file">File：</label>
+              </div>
+              <div class="col-14">
+                <div class="custom-file">
+                  <input class="custom-file-input" id="file" name="file" type="file">
+                  <label class="custom-file-label" for="customFile">選擇檔案</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row justify-content-start text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="textarea">Textarea：</label>
+              </div>
+              <div class="col-14">
+                <textarea class="form-control" id="textarea" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="form-group row justify-content-start align-items-center text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="checkbox_A">Checkbox：</label>
+              </div>
+              <div class="col-14">
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input class="custom-control-input" id="checkbox_A" name="checkbox" type="checkbox" value="checkbox_A" checked>
+                  <label class="custom-control-label" for="checkbox_A">checkbox_A</label>
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input class="custom-control-input" id="checkbox_B" name="checkbox" type="checkbox" value="checkbox_B">
+                  <label class="custom-control-label" for="checkbox_B">checkbox_B</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row justify-content-start align-items-center text-left">
+              <div class="col-8 text-right">
+                <label class="col-form-label font-weight-bold" for="radio_A">Radios：</label>
+              </div>
+              <div class="col-14">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input class="custom-control-input" id="radio_A" name="radio" type="radio" value="radio_A" checked>
+                  <label class="custom-control-label" for="radio_A">radio_A</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input class="custom-control-input" id="radio_B" name="radio" type="radio" value="radio_B">
+                  <label class="custom-control-label" for="radio_B">radio_B</label>
+                </div>
+              </div>
+            </div>
+            <button class="confirm" type="submit" onclick="modalConfirmOpen()">確定</button>
+            <button class="cancel" type="reset" onclick="modalClose($(this))">取消</button>
+          </form>
         </div>
-        <div class="popupBg"></div>
-      </form>
+        <div class="modalBg" onclick="modalClose($(this))"></div>
+      </div>
+    </div>
+    <div class="d-none" id="modalConfirm">
+      <div class="modal modalConfirm">
+        <div class="modalContent text-center animated bounceInUp"><i class="fas fa-times modalClose" onclick="modalClose($(this))"></i>
+          <h5 class="font-weight-bold">確定要使用嗎?</h5>
+          <p id="data">2019/5/13 (月) 20:00-23:15</p>
+          <p id="fail"></p>
+          <p id="success"></p>
+          <div class="w-100"></div>
+          <button class="confirm" type="button" onclick="send()">確定</button>
+          <button class="cancel" type="button" onclick="modalClose($(this))">取消</button>
+        </div>
+        <div class="modalBg" onclick="modalClose($(this))"></div>
+      </div>
     </div>
     <main>
-      <div class="container bc-1">
-        <button class="btn btn-primary" type="button" onclick="popupOpen()">TEST</button>
+      <div class="container">
+        <button class="btn btn-primary mb-5" type="button" onclick="modalOpen()">TEST</button>
+        <div class="row">
+          <div class="col-24">
+            <canvas class="mb-5" id="myChart1" width="600" height="400"></canvas>
+          </div>
+          <div class="col-24">
+            <canvas class="mb-5" id="myChart2" width="600" height="400"></canvas>
+          </div>
+          <div class="col-12">
+            <canvas id="myChart3" width="600" height="400"></canvas>
+          </div>
+          <div class="col-12">
+            <canvas id="myChart4" width="600" height="400"></canvas>
+          </div>
+        </div>
+        <button class="btn btn-primary mb-5" type="button" onclick="modalOpen()">TEST</button>
       </div>
     </main>
     <footer></footer>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="plugins/bootstrap-4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/chart-2.8.0/Chart.bundle.min.js"></script>
     <script src="plugins/jquery-validate-1.19.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
     <script src="js/index.js?v=1"></script>

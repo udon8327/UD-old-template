@@ -229,11 +229,10 @@ ul {
     height: 0;
     visibility: hidden; }
 
-/*popup彈出視窗*/
-.popup {
-  height: 100%;
-  width: 100%;
-  position: absolute;
+/*modal彈出視窗*/
+.modal {
+  height: 100vh;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -242,23 +241,24 @@ ul {
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
-  .popup .popupContent {
-    padding: 15px 15px;
+  align-items: center;
+  z-index: 1000; }
+  .modal .modalContent {
     background-color: #fff;
-    width: 80%;
+    height: 90vh;
+    width: 90vw;
     position: fixed;
     padding: 15px;
-    border-radius: 6px;
-    z-index: 110;
+    overflow: auto;
     -webkit-animation-duration: 0.4s;
     animation-duration: 0.4s;
     -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2); }
-    @media (min-width: 767px) {
-      .popup .popupContent {
-        max-width: 500px; } }
-    .popup .popupContent .popupClose {
+    @media (min-width: 900px) {
+      .modal .modalContent {
+        max-width: 500px;
+        height: 75vh; } }
+    .modal .modalContent .modalClose {
       position: absolute;
       top: 8px;
       font-size: 22px;
@@ -268,13 +268,14 @@ ul {
       -webkit-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
       transition: all 0.2s ease; }
-      .popup .popupContent .popupClose:hover {
+      .modal .modalContent .modalClose:hover {
         -webkit-transform: scale(1.3);
         -ms-transform: scale(1.3);
         transform: scale(1.3); }
-    .popup .popupContent h5 {
-      font-size: 22px; }
-    .popup .popupContent button {
+    .modal .modalContent h5 {
+      font-size: 18px;
+      font-weight: bold; }
+    .modal .modalContent button {
       background-color: #33393f;
       cursor: pointer;
       border: none;
@@ -285,32 +286,31 @@ ul {
       -webkit-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
       transition: all 0.2s ease; }
-      .popup .popupContent button:hover {
+      .modal .modalContent button:hover {
         background-color: #282c31; }
-      .popup .popupContent button.cancel {
+      .modal .modalContent button.cancel {
         background-color: #fff;
         border: 1px solid #33393f;
         color: #33393f; }
-        .popup .popupContent button.cancel:hover {
+        .modal .modalContent button.cancel:hover {
           background-color: #f2f2f2; }
-  .popup .popupBg {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    background-color: rgba(0, 0, 0, 0.3);
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    z-index: 10; }
+  .modal .modalBg {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh; }
+
+.modalConfirm {
+  z-index: 1100; }
+  .modalConfirm .modalContent {
+    height: auto;
+    width: 90vw; }
+  .modalConfirm p#fail, .modalConfirm p#success {
+    font-weight: bold;
+    font-size: 16px; }
+  .modalConfirm p#fail {
+    color: red; }
+  .modalConfirm p#success {
+    color: green; }
 
 /*jquery validate.js表單驗證*/
 label {
@@ -346,7 +346,7 @@ select {
 
 /*body*/
 body {
-  background-color: #efefee; }
+  background-color: #fff; }
 
 /*nav*/
 /*header*/
