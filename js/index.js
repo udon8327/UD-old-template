@@ -325,3 +325,10 @@ $(function () {
   });
 
 });
+
+var app = new Vue({
+  el: '#test',
+  data: {
+    title: 'Hello Vue!'
+  }
+})

@@ -136,8 +136,9 @@
       </div>
     </div>
     <main>
-      <div class="container">
+      <div class="container" id="test">
         <button class="btn btn-primary mb-5" type="button" onclick="modalOpen()">TEST</button>
+        <h1>{{title}}</h1>
         <div class="row">
           <div class="col-24">
             <canvas class="mb-5" id="myChart1" width="600" height="400"></canvas>
@@ -158,9 +159,10 @@
     <footer></footer>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="plugins/bootstrap-4.2.1/js/bootstrap.bundle.min.js"></script>
-    <script src="plugins/chart-2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js"></script>
     <script src="plugins/jquery-validate-1.19.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script src="plugins/chart-2.8.0/Chart.bundle.min.js"></script>
     <script src="js/index.js?v=1"></script>
   </body>
 </html>
