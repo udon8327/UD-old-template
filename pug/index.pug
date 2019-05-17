@@ -1,45 +1,129 @@
-doctype html
-html(lang='zh-Hant-TW')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width initial-scale=1.0')
-    //meta(name='viewport' content='width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no')
-    meta(name='description' content='網頁描述')
-    meta(name='keywords' content='網頁關鍵字')
-    meta(name='author' content='Bohan Huang')
-    link(rel='shortcut icon' href='img/.ico')
-    title 網頁名稱
-    link(rel='stylesheet' href='plugins/bootstrap-4.2.1-dist/css/bootstrap.min.css')
-    link(rel='stylesheet' href='css/mycss.css')
-    link(rel='stylesheet' href='css/index.css')
-    | <!--[if lt IE 9]>
-    |   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    |   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    | <![endif]-->
+extends _layout.pug
 
-  body
+block var
+	-var url = ''
+	-var link = 'html/'
 
-    //-gotop
-    #gotop
-      i.glyphicon.glyphicon-menu-up
+block title
+	title 首頁
 
-    //-nav
-    nav
+block css
+	link(href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css' rel='stylesheet')
+	link(href='css/index.css?v=1' rel='stylesheet')
 
-    //-header
-    header
-      //-h1.logo
-        a(href='#') Aqours 
+block js
+	script(src="plugins/jquery-validate-1.19.0/jquery.validate.min.js")
+	script(src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js")
+	script(src="plugins/chart-2.8.0/Chart.bundle.min.js")
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js')
 
-    //-main
-    main
+//---------------------------內容區Start---------------------------
+block content
+	
+	//- modal
+	#modal.d-none
+		.modal
+			.modalContent.text-center.animated.bounceInUp
+				i.fas.fa-times.modalClose(onclick='modalClose($(this))')
+				h5.font-weight-bold modal Title
+				p modal Text
+				//- form
+				form#formValidate(name="modal" action="" method="post")
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='name') Name：
+						.col-14
+							input#name.form-control(name="name" type="text" placeholder='請輸入姓名')
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='mobile') Phone：
+						.col-14
+							input#mobile.form-control(name="mobile" type="tel" placeholder='請輸入手機號碼')
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='email') Email：
+						.col-14
+							input#email.form-control(name="email" type="email" placeholder='請輸入Email')
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='select') Select：
+						.col-14
+							select#select.form-control(name="select" type="select")
+								option(value="select_A") select_A
+								option(value="select_B") select_B
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='file') File：
+						.col-14
+							.custom-file
+								input#file.custom-file-input(name="file" type='file')
+								label.custom-file-label(for='customFile') 選擇檔案
+					.form-group.row.justify-content-start.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='textarea') Textarea：
+						.col-14
+							textarea#textarea.form-control(rows='2')
+					.form-group.row.justify-content-start.align-items-center.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='checkbox_A') Checkbox：
+						.col-14
+							.custom-control.custom-checkbox.custom-control-inline
+								input#checkbox_A.custom-control-input(name="checkbox" type='checkbox' value='checkbox_A' checked)
+								label.custom-control-label(for='checkbox_A') checkbox_A
+							.custom-control.custom-checkbox.custom-control-inline
+								input#checkbox_B.custom-control-input(name="checkbox" type='checkbox' value='checkbox_B')
+								label.custom-control-label(for='checkbox_B') checkbox_B
+					.form-group.row.justify-content-start.align-items-center.text-left
+						.col-8.text-right
+							label.col-form-label.font-weight-bold(for='radio_A') Radios：
+						.col-14
+							.custom-control.custom-radio.custom-control-inline
+								input#radio_A.custom-control-input(name='radio' type='radio' value='radio_A' checked)
+								label.custom-control-label(for='radio_A') radio_A
+							.custom-control.custom-radio.custom-control-inline
+								input#radio_B.custom-control-input(name='radio' type='radio' value='radio_B')
+								label.custom-control-label(for='radio_B') radio_B
+					//- button
+					button.confirm(type='submit' onclick='modalConfirmOpen()') 確定
+					button.cancel(type='reset' onclick='modalClose($(this))') 取消
+			.modalBg(onclick='modalClose($(this))')
 
-    //-footer
-    footer
+	//- modalConfirm
+	#modalConfirm.d-none
+		.modal.modalConfirm
+			.modalContent.text-center.animated.bounceInUp
+				i.fas.fa-times.modalClose(onclick='modalClose($(this))')
+				h5.font-weight-bold 確定要使用嗎?
+				p#data 2019/5/13 (月) 20:00-23:15
+				p#fail
+				p#success
+				.w-100
+				//- button
+				button.confirm(type='button' onclick='send()') 確定
+				button.cancel(type='button' onclick='modalClose($(this))') 取消
+			.modalBg(onclick='modalClose($(this))')
 
-    //-script
-    script(src='js/jquery-3.3.1.min.js')
-    //-script(src='https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js')
-    script(src='plugins/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js')
-    script(src='js/index.js')
+	//- main
+	main
+		.container#test
+			button.btn.btn-primary.mb-5(type="button" onclick='send()') TEST
+			p#successa
+			input#hospital(type="text" name="hospital")
+			h1 {{title}}
+			button#aa(type='button' onclick='window.location.href="https://www.google.com.tw"') 估狗
+			
+			.row
+				.col-24
+					canvas#myChart1.mb-5(width='600', height='400')
+				.col-24
+					canvas#myChart2.mb-5(width='600', height='400')
+				.col-12
+					canvas#myChart3(width='600', height='400')
+				.col-12
+					canvas#myChart4(width='600', height='400')
+
+			button.btn.btn-primary.mb-5(type="button" onclick='modalOpen()') TEST
+
+
+//---------------------------內容區End---------------------------
