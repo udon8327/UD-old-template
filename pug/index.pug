@@ -8,12 +8,15 @@ block title
 	title 首頁
 
 block css
+	link(href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css' rel='stylesheet')
 	link(href='css/index.css?v=1' rel='stylesheet')
 
 block js
 	script(src="plugins/jquery-validate-1.19.0/jquery.validate.min.js")
 	script(src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js")
 	script(src="plugins/chart-2.8.0/Chart.bundle.min.js")
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js')
 
 //---------------------------內容區Start---------------------------
 block content
@@ -104,8 +107,12 @@ block content
 	//- main
 	main
 		.container#test
-			button.btn.btn-primary.mb-5(type="button" onclick='modalOpen()') TEST
+			button.btn.btn-primary.mb-5(type="button" onclick='send()') TEST
+			p#successa
+			input#hospital(type="text" name="hospital")
 			h1 {{title}}
+			button#aa(type='button' onclick='window.location.href="https://www.google.com.tw"') 估狗
+			
 			.row
 				.col-24
 					canvas#myChart1.mb-5(width='600', height='400')

@@ -13,3 +13,21 @@ main {
       main .container h1 {
         margin: 25px 0;
         font-size: 24px; } }
+
+.ui-autocomplete {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+#aa {
+  background-color: #000;
+  color: red;
+  padding: 8px 20px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  #aa:hover {
+    background-color: #333333; }

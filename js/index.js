@@ -91,23 +91,34 @@ function modalConfirmOpen() {
 //ajax
 function send() {
   $.ajax({
-    url: '',
-    type: 'post',
-    data: { worktime: $("#data").text() },
+    url: 'http://udonsite.com/ajax/success.php',
+    type: 'get',
+    // cache: 'false',
+    data: {
+      name: "UDON",
+      gender: "male",
+      age: 30
+    },
     error: function (xhr) {
       $('#fail').text('發送失敗，請稍候再嘗試');
     },
-    success: function (res,status) {
+    success: function (res, status) {
       if (res == '') {
         alert("資料為空");
       } else {
-        $('#success').text('發送成功');
-        console.log(typeof res);
+        $('#successa').text('發送成功');
+        console.log("res: " + res);
+        console.log("res類型: " + typeof res);
+        // var resObj = JSON.parse(res);
+        // console.dir(resObj);
+        // console.log("resObj類型: " + typeof resObj);
+        // console.log("發送狀態: " + status);
       }
       //modalClose($('.modal:visible'));
     }
   });
 }
+
 
 //chrat.js
 $(function () {
@@ -332,3 +343,19 @@ var app = new Vue({
     title: 'Hello Vue!'
   }
 })
+
+// autocomplete
+$(function() {
+  $.ajax({
+    url: 'https://udonsite.com/ajax/success.php',
+    type: 'get',
+    cache: false,
+    success: function (res) { 
+      // console.log('res: ' + res + 'resType: ' + typeof res);
+      $( "#hospital" ).autocomplete({
+        source: JSON.parse(res),
+        autoFocus: true,
+      });
+    }
+  });
+});
