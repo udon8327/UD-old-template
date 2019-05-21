@@ -111,8 +111,22 @@ block content
 			p#successa
 			input#hospital(type="text" name="hospital")
 			h1 {{title}}
-			button#aa(type='button' onclick='window.location.href="https://www.google.com.tw"') 估狗啊!!
-			
+
+			#gacha
+				.bg
+					span#message 點擊抽獎
+					.lotterybg
+						canvas#myCanvas(width='285px', height='170px')
+						img.lighting(src='img/lighting.png')
+				img#start(src='img/start-btn.png', onclick='play()')
+				.award
+					span#awardBall
+				img#ball1.imgSrc(src='img/1.png')
+				img#ball2.imgSrc(src='img/2.png')
+				img#ball3.imgSrc(src='img/3.png')
+				img#ball4.imgSrc(src='img/4.png')
+
+			button#aa(type='button') 連結
 			.row
 				.col-24
 					canvas#myChart1.mb-5(width='600', height='400')

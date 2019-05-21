@@ -142,7 +142,15 @@
         <p id="successa"></p>
         <input id="hospital" type="text" name="hospital">
         <h1>{{title}}</h1>
-        <button id="aa" type="button" onclick="window.location.href=&quot;https://www.google.com.tw&quot;">估狗啊!!</button>
+        <div id="gacha">
+          <div class="bg"><span id="message">點擊抽獎</span>
+            <div class="lotterybg">
+              <canvas id="myCanvas" width="285px" height="170px"></canvas><img class="lighting" src="img/lighting.png">
+            </div>
+          </div><img id="start" src="img/start-btn.png" onclick="play()">
+          <div class="award"><span id="awardBall"></span></div><img class="imgSrc" id="ball1" src="img/1.png"><img class="imgSrc" id="ball2" src="img/2.png"><img class="imgSrc" id="ball3" src="img/3.png"><img class="imgSrc" id="ball4" src="img/4.png">
+        </div>
+        <button id="aa" type="button">連結</button>
         <div class="row">
           <div class="col-24">
             <canvas class="mb-5" id="myChart1" width="600" height="400"></canvas>
